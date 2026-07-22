@@ -1,0 +1,64 @@
+I would like to build a python security tool that I can have scan emails to score them to determine if they are legitimate or phishing.
+
+Architected modular phishing detection scanner with heuristic analysis
+Architected modular phishing detection scanner with heuristic analysis
+
+A phishing-detection scanner is a great defensive security project — I'll build you a proper Python tool that parses .eml files, extracts red-flag features, and produces a weighted risk score with an explanation of why it flagged something.
+
+Here's my plan for the heuristics it'll check:
+
+Authentication — SPF/DKIM/DMARC results from headers
+Sender spoofing — display name vs. actual domain mismatches, lookalike/homograph domains, free-mail providers impersonating brands
+Links — mismatched anchor text vs. href, IP-literal URLs, URL shorteners, suspicious TLDs
+Content — urgency/pressure language, generic greetings, credential-harvesting phrases
+Attachments — dangerous extensions, double extensions
+Reply-To mismatches
+
+Let me build this out.
+
+Navigated toward core detection mechanisms and implementation logic
+Navigated toward core detection mechanisms and implementation logic
+
+Now the CLI and reporting layer:
+
+Created 2 files
+Created 2 files
+
+Now let me create a few sample .eml test files (one obviously phishy, one legitimate) so I can verify the tool works end-to-end:
+
+Created 2 files, ran a command
+Created 2 files, ran a command
+
+Both cases work correctly. Let me also verify the JSON output and CSV export paths work, then test the lookalike-domain detector isn't wrongly matching the sample I flagged as "does not match" instead of "lookalike":
+
+Resolved technical issue and prepared project packaging
+Resolved technical issue and prepared project packaging
+
+The BrokenPipeError is only from piping to head — not a real bug. Everything works correctly: JSON, CSV, and scoring all check out. Let me add a README and a simple test script, then package it up.
+
+Created a file, ran a command
+Created a file, ran a command
+
+All tests pass. Now the README:
+
+Created a file, ran a command, read a file
+Created a file, ran a command, read a file
+
+It's built, tested, and ready — pure standard library, no dependencies to install.
+
+How it works: you feed it .eml files (exportable from Gmail, Outlook, Apple Mail, etc.), and it runs 10 explainable checks — SPF/DKIM/DMARC results, sender/display-name spoofing, lookalike domains, link-text-vs-actual-URL mismatches, IP-literal links, urgency language, credential-harvesting phrases, dangerous attachments, and more. Each finding carries a point value and a plain-English reason, so nothing is a black box — you can see exactly why an email got flagged.
+
+Quick test against my two sample emails:
+
+A spoofed "PayPal" phishing email scored 100/100 — PHISHING (failed SPF/DKIM/DMARC, lookalike domain, link text/destination mismatch, urgency language)
+A normal newsletter scored 0/100 — LIKELY SAFE
+
+Usage:
+
+bash
+python -m phishing_scanner scan path/to/email.eml
+python -m phishing_scanner scan path/to/folder/ --csv report.csv
+
+A few honest caveats worth keeping in mind: it's a heuristic scorer, not an ML classifier, so it'll have both false positives (aggressive marketing copy) and false negatives (well-crafted phishing that avoids these patterns) — treat the score as one signal, not a verdict. It also doesn't fetch links or open attachments (by design, for safety), so it can't check things like domain age or scan attachment contents.
+
+The README covers extending it further — adding an allowlist for your org's domains, wiring in a real WHOIS lookup, or eventually feeding the extracted features into a trained classifier if you want to go that route.

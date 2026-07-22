@@ -1,0 +1,17 @@
+From: "Acme Corp Newsletter" <newsletter@acmecorp.com>
+To: jane.doe@example.com
+Subject: Your July product update from Acme Corp
+Date: Mon, 20 Jul 2026 09:00:00 -0400
+Authentication-Results: mx.example.com; spf=pass smtp.mailfrom=acmecorp.com; dkim=pass; dmarc=pass
+Content-Type: text/html; charset="utf-8"
+
+<html>
+<body>
+<p>Hi Jane,</p>
+<p>Here's what's new at Acme Corp this month. We've shipped a few features
+based on your feedback.</p>
+<p>Read the full changelog: <a href="https://acmecorp.com/changelog">acmecorp.com/changelog</a></p>
+<p>As always, thanks for being a customer.</p>
+<p>- The Acme Corp Team</p>
+</body>
+</html>
