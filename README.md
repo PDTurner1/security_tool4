@@ -24,13 +24,13 @@ Python3 phish_scan.py saved_email.eml --csv filename (save to .csv file)
 
 Files in this repository:
 
-Initial Claude interaction.txt          My initial Claude AI interaction for the tool.
+Initial Claude interaction.txt - My initial Claude AI interaction for the tool.
 
-Phish_scan_Documentation.pdf            pdf of phish_scan documentation.
+Phish_scan_Documentation.pdf - pdf of phish_scan documentation.
 
-legit_newsletter.eml                    Saved email of a newsletter that passes the phishing test.
+legit_newsletter.eml - Saved email of a newsletter that passes the phishing test.
 
-phish_scan.py                           the phish_scan python file
+phish_scan.py - the phish_scan python file
 
 phishing_paypal.eml - Saved email from "paypal" that fails the phishing test.
 
