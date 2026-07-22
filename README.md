@@ -40,7 +40,6 @@ phishing_scanner_origial_python file.py - original python file produced by Claud
 
 
 
-Please email me if you have any issues with the tool.
 
 Thank you.
 
