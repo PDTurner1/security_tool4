@@ -1,0 +1,16 @@
+From: "Wells Fargo Alerts" <alerts@wellsfarg0-secure.com>
+To: victim@example.com
+Subject: Important: Unusual sign-in detected on your account
+Date: Mon, 20 Jul 2026 09:00:00 -0400
+Received: by mail.wellsfarg0-secure.com (Postfix) with ESMTP id XYZ789; Mon, 20 Jul 2026 09:00:01 -0400
+Authentication-Results: mx.wellsfargo.com; spf=pass smtp.mailfrom=wellsfarg0-secure.com; dkim=pass; dmarc=pass
+Content-Type: text/html; charset="utf-8"
+
+<html>
+<body>
+<p>Dear Customer,</p>
+<p>We detected unusual activity on your account. Please verify your identity
+immediately to avoid account suspension.</p>
+<p><a href="https://wellsfargo.com/secure">Click here to verify</a></p>
+</body>
+</html>
