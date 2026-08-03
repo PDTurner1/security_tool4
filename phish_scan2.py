@@ -1,22 +1,25 @@
 # Patrick Turner
-# CSC 842 - Tool #4
+# CSC 842 - Tool #4 v2
 # Dr. Welu
-# July 25, 2026
+# August 3, 2026
 
-#				PHISH SCAN
+#				PHISH SCAN v2
 
-# Phish_scan is a tool for scoring emails to determine if they are legitimate
+# Phish_scan2 is a tool for scoring emails to determine if they are legitimate
 # or a likely phishing scam.
 
 # The tool does NOT execute, click, or fetch any content from the emails it scans.
 
-# Phish_scan uses Python standard library 3.9+
+# Phish_scan2 uses Python standard library 3.9+
 
 # Usage:
-#	python3 phish_scan.py --help
-#	python3 phish_scan.py saved_email.eml
-#	python3 phish_scan.py ./emails
-#	python3 phish_scan.py saved_email.eml --csv csvtext.csv
+#	python3 phish_scan2.py --help
+#	python3 phish_scan2.py saved_email.eml
+#	python3 phish_scan2.py ./emails
+#	python3 phish_scan2.py saved_email.eml --csv csvtext.csv
+#	python3 phish_scan2.py saved_email.eml -- json output.json
+#	python3 phish_scan2.py  saved_email.eml -- html output.html
+
 
 
 from __future__ import annotations
