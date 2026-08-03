@@ -1,3 +1,43 @@
+
+Phish_Scan modifications
+
+Phish_scan2.py – the new python script
+
+Feedback received:
+1.	Make the authentication check trust aware.  Rather than believing any Authentication-Results, parse the Received header chain and only honor the results stamped by the final trusted hop.  This will stop an attacker from self-certifying a clean bill of health.
+2.	Provide HTML and JSON output options.
+3.	Fix readme file to show plain flags.
+4.	Reject non-eml files.
+5.	Passing off contents of emails to a third party for scanning and validation.
+6.	Add an allow list to mute internal senders.
+
+Feedback implemented:
+1.	I have made the authentication trust-aware and have included a sample email to test the option.
+2.	The tool now has HTML and JSON output options.
+3.	Readme file is fixed to show plain flags (-h).
+4.	Tool now rejects non-eml files.
+Feedback not implemented:
+1.	Passing off contents of email to a third party for scanning and validation.  I felt this is an excellent idea and would make the tool more dynamic and updated. I also felt that this would be a completely new tool.
+2.	Add an allow list to mute internal senders.  I felt this would partially defeat checking all emails and a spoofed email from an internal sender would go unnoticed.
+
+
+
+New command line options for json, html:
+
+python3 phish_scan.py ./emails --json report.json
+python3 phish_scan.py ./emails --html report.html
+python3 phish_scan.py ./emails --csv report.csv --json report.json --html report.html
+
+
+
+
+
+
+
+
+
+
+
 Phish Scan
 
 Phish_scan.py is a python scripted email parser that evaluates emails saved in .eml format for phishing heuristics.  
